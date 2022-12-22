@@ -154,18 +154,42 @@ public class Menu {
 			break;
 		case 2:
 			a.clearScreen();
-			System.out.println("1-Add New Customer");
-			System.out.println("");
-			System.out.println("2-Update Customer");
-			System.out.println("");
-			System.out.println("3-Search Customer");
-			System.out.println("");
-			System.out.println("4-List Of Existing Customer");
-			System.out.println("");
-			System.out.println("5-Main Menu");
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
+			System.out.println(""
+					+ "                               ---------------\r\n"
+					+ "                                Customer MENU\r\n"
+					+ "                               ---------------\r\n"
+					+ " ________________________________________________________________________________\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     1-Add New Customer                                       |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     2-Update Customer                                        |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     3-Search Customer                                        |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     4-List of Existing Customer                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     5-Main Menu                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |______________________________________________________________________________|");
 			Scanner de = new Scanner(System.in);
 			System.out.println("Enter your choice : ");
 			choice = Integer.parseInt(de.nextLine());
