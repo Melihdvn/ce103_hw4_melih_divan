@@ -268,20 +268,42 @@ public class Menu {
 			break;
 		case 4:
 			a.clearScreen();
-			System.out.println("1-Purchase Report");
-			System.out.println("");
-			System.out.println("2-Sale Report");
-			System.out.println("");
-			System.out.println("3-Profit Report");
-			System.out.println("");
-			System.out.println("4-Daily Sale Report");
-			System.out.println("");
-			System.out.println("5-Daily Purchase Report");
-			System.out.println("");
-			System.out.println("6-Main Menu");
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
+			System.out.println(""
+					+ "                               ---------------\r\n"
+					+ "                                 Report MENU\r\n"
+					+ "                               ---------------\r\n"
+					+ " ________________________________________________________________________________\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     1-Purchase Report                                        |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     2-Sale Report                                            |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     3-Profit Report                                          |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     4-Daily Sale Report                                      |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     5-Daily Purchase Report                                  |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     6-Main Menu                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |______________________________________________________________________________|");
 			Scanner dsd = new Scanner(System.in);
 			System.out.println("Enter your choice : ");
 			choice = Integer.parseInt(dsd.nextLine());
