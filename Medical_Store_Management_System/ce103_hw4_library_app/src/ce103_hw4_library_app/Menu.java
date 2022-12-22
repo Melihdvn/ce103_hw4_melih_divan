@@ -37,7 +37,7 @@ public class Menu {
 		System.out.println(" "
 				+ "________________________________________________________________________________\r\n"
 				+ " |                                                                              |\r\n"
-				+ " | 1-Supplier Info 2-Customer Info 3-Medicine 4-Report  5-Bill 6-About  7-Exit  |\r\n"
+				+ " | 1-Supplier Info 2-Customer Info 3-Medicine 4-Report  5-Bill 6-About  0-Exit  |\r\n"
 				+ " |______________________________________________________________________________|\r\n"
 				+ " |                                                                              |\r\n"
 				+ " |                                                                              |\r\n"
@@ -93,7 +93,7 @@ public class Menu {
 		case 0:
 			exit = true;
 			a.clearScreen();
-			System.out.println("see you");
+			System.out.println("Exiting app...");
 			break;
 
 		case 1:
