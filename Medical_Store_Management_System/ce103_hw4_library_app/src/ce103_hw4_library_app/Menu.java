@@ -211,18 +211,42 @@ public class Menu {
 			break;
 		case 3:
 			a.clearScreen();
-			System.out.println("1-Purchase New Medicine");
-			System.out.println("");
-			System.out.println("2-Sale Medicine");
-			System.out.println("");
-			System.out.println("3-Stock Of Medicine");
-			System.out.println("");
-			System.out.println("4-Search Medicine");
-			System.out.println("");
-			System.out.println("5-Main Menu");
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
+			System.out.println(""
+					+ "                               ---------------\r\n"
+					+ "                                Medicine MENU\r\n"
+					+ "                               ---------------\r\n"
+					+ " ________________________________________________________________________________\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     1-Purchase New Medicine                                  |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     2-Sale Medicine                                          |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     3-Stock of Medicine                                      |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     4-Search Medicine                                        |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                     5-Main Menu                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |                                                                              |\r\n"
+					+ " |______________________________________________________________________________|");
 			Scanner ds = new Scanner(System.in);
 			System.out.println("Enter your choice : ");
 			choice = Integer.parseInt(ds.nextLine());
