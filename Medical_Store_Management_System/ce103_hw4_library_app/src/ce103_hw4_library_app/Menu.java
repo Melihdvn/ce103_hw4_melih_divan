@@ -34,11 +34,42 @@ public class Menu {
 		Menu b = new Menu();
 		b.clearScreen();
 		System.out.println("Please make a selection");
-		System.out.println("|--------------------------------------------------------------------------------|");
-		System.out.println("|                                                                                |");
-		System.out.println("| 1-Supplier Info  2-Customer Info  3-Medicine  4-Report  5-Bill  6-About  0-Exit|");
-		System.out.println("|                                                                                |");
-		System.out.println("|--------------------------------------------------------------------------------|");
+		System.out.println(" "
+				+ "________________________________________________________________________________\r\n"
+				+ " |                                                                              |\r\n"
+				+ " | 1-Supplier Info 2-Customer Info 3-Medicine 4-Report  5-Bill 6-About  7-Exit  |\r\n"
+				+ " |______________________________________________________________________________|\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                            Welcome To Medical Store                          |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |                                                                              |\r\n"
+				+ " |______________________________________________________________________________|");
 	}
 
 	public int getInput() {
