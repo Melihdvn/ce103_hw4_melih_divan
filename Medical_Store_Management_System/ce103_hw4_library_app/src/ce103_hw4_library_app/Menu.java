@@ -347,10 +347,22 @@ public class Menu {
 			break;
 		case 6:
 			a.clearScreen();
-			System.out.println("This is an app for medical store management.");
-			System.out.println("For more info check https://github.com/Melihdvn/ce103_hw4_2022_2023_habil_kocoglu_melih_divan");
+			System.out.println(""
+					+ "                            ***** MEDICAL STORE *****\r\n"
+					+ "\r\n"
+					+ "\r\n"
+					+ "\r\n"
+					+ "          => This is an app for medical store management.\r\n"
+					+ "\r\n"
+					+ "          => In this app we can Add Medicine, Customer, Supplier Details.\r\n"
+					+ "\r\n"
+					+ "          => We can Modify & Delete Existing Record.\r\n"
+					+ "\r\n"
+					+ "          => We can also Search Medicine, Customer, Supplier Details.\r\n");
+			
+			System.out.println("\nFor more info, check https://github.com/Melihdvn/ce103_hw4_2022_2023_habil_kocoglu_melih_divan");
 
-			System.out.println("Write Something And Press Enter To Exit");
+			System.out.println("Write Something And Press Enter To Exit.");
 			Scanner a1 = new Scanner(System.in);
 			Character kl = a1.next().charAt(0);
 
