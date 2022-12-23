@@ -95,7 +95,6 @@ public class Menu {
 			try {
 				System.out.println("Enter your choice : ");
 				choice = Integer.parseInt(kb.nextLine());
-				kb.close();
 			} catch (NumberFormatException e) {
 				System.out.println("invalid");
 			}
