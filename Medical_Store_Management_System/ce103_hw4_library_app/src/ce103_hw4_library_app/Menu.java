@@ -5,6 +5,27 @@ import java.util.Scanner;
 public class Menu {
 
 	boolean exit;
+	
+	public void clearScreen() 
+    {
+        try 
+        {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        }catch (Exception e) {
+            e.printStackTrace();
+        } 
+    }
+	
+	 public void pressEnterToContinue()
+	 { 
+	        System.out.println("Press Enter key to continue...");
+	        try
+	        {
+	            System.in.read();
+	        }  
+	        catch(Exception e)
+	        {}  
+	 }
 
 	public static void main(String[] args) {
 		Menu menu = new Menu();
@@ -18,11 +39,6 @@ public class Menu {
 			int choice = getInput();
 			performAction(choice);
 		}
-	}
-
-	public void clearScreen() {
-		System.out.print("\033[H\033[2J");
-		System.out.flush();
 	}
 
 	public void printHeader() {
@@ -79,6 +95,7 @@ public class Menu {
 			try {
 				System.out.println("Enter your choice : ");
 				choice = Integer.parseInt(kb.nextLine());
+				kb.close();
 			} catch (NumberFormatException e) {
 				System.out.println("invalid");
 			}
@@ -363,8 +380,7 @@ public class Menu {
 			System.out.println("\nFor more info, check https://github.com/Melihdvn/ce103_hw4_2022_2023_habil_kocoglu_melih_divan");
 
 			System.out.println("Write Something And Press Enter To Exit.");
-			Scanner a1 = new Scanner(System.in);
-			Character kl = a1.next().charAt(0);
+			pressEnterToContinue();
 
 			break;
 		}
