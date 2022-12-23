@@ -377,8 +377,6 @@ public class Menu {
 					+ "          => We can also Search Medicine, Customer, Supplier Details.\r\n");
 			
 			System.out.println("\nFor more info, check https://github.com/Melihdvn/ce103_hw4_2022_2023_habil_kocoglu_melih_divan");
-
-			System.out.println("Write Something And Press Enter To Exit.");
 			pressEnterToContinue();
 
 			break;
