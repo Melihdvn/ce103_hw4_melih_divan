@@ -3,6 +3,7 @@
 	<name>ce103_hw4_library_app</name>
 	<comment></comment>
 	<projects>
+		<project>ce103_hw4_library_lib</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
