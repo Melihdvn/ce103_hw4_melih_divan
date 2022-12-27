@@ -2,6 +2,7 @@ package ce103_hw4_library_app;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -255,17 +256,19 @@ public class Menu {
 		System.out.println("CONTACT NO.   : ");
 		gotoxy(8, 23);
 		System.out.println("EMAIL ID    : ");
+		
+	    Scanner scanIn = new Scanner(System.in);
 	
 		gotoxy(22, 13);
-		int id = Integer.parseInt(System.console().readLine());
+		int id = Integer.parseInt(scanIn.nextLine());
 		gotoxy(55, 13);
-		String title = System.console().readLine();
+		String title = scanIn.nextLine();
 		gotoxy(22, 18);
-		String city = System.console().readLine();
+		String city = scanIn.nextLine();
 		gotoxy(55, 18);
-		String contactno = System.console().readLine();
+		String contactno = scanIn.nextLine();
 		gotoxy(22, 23);
-		String emailid = System.console().readLine();
+		String emailid = scanIn.nextLine();
 	
 		Supplier supplier = new Supplier();
 		supplier.setId(id);
@@ -312,8 +315,9 @@ public class Menu {
 		main_box();
 		int suppliernumber;
 	
+		Scanner scanIn = new Scanner(System.in);
 		System.out.println("Please enter the supplier that do you want to edit: ");
-		suppliernumber = Integer.parseInt(System.console().readLine());
+		suppliernumber = Integer.parseInt(scanIn.nextLine());
 		Supplier supp = new Supplier();
 	
 		gotoxy(30, 8);
@@ -330,15 +334,15 @@ public class Menu {
 		System.out.println("EMAIL ID    : ");
 	
 		gotoxy(22, 13);
-		int id = Integer.parseInt(System.console().readLine());
+		int id = Integer.parseInt(scanIn.nextLine());
 		gotoxy(55, 13);
-		String title = System.console().readLine();
+		String title = scanIn.nextLine();
 		gotoxy(22, 18);
-		String city = System.console().readLine();
+		String city = scanIn.nextLine();
 		gotoxy(55, 18);
-		String contactno = System.console().readLine();
+		String contactno = scanIn.nextLine();
 		gotoxy(22, 23);
-		String emailid = System.console().readLine();
+		String emailid = scanIn.nextLine();
 	
 		supp.setId(id);
 		supp.setName(title);
@@ -564,17 +568,19 @@ public class Menu {
 		System.out.println("CONTACT NO.   : ");
 		gotoxy(8, 23);
 		System.out.println("EMAIL ID    : ");
+		
+	    Scanner scanIn = new Scanner(System.in);
 	
 		gotoxy(22, 13);
-		int id = Integer.parseInt(System.console().readLine());
+		int id = Integer.parseInt(scanIn.nextLine());
 		gotoxy(55, 13);
-		String title = System.console().readLine();
+		String title = scanIn.nextLine();
 		gotoxy(22, 18);
-		String city = System.console().readLine();
+		String city = scanIn.nextLine();
 		gotoxy(55, 18);
-		String contactno = System.console().readLine();
+		String contactno = scanIn.nextLine();
 		gotoxy(22, 23);
-		String emailid = System.console().readLine();
+		String emailid = scanIn.nextLine();
 	
 		Customer customer = new Customer();
 		customer.setId(id);
@@ -621,7 +627,10 @@ public class Menu {
 		int customernumber;
 		clearScreen();
 		System.out.println("Please enter number of the customer which do you want to edit: ");
-		customernumber = Integer.parseInt(System.console().readLine());
+		
+	    Scanner scanIn = new Scanner(System.in);
+
+		customernumber = Integer.parseInt(scanIn.nextLine());
 		Customer cust = new Customer();
 	
 		gotoxy(30, 8);
@@ -638,15 +647,15 @@ public class Menu {
 		System.out.println("EMAIL ID    : ");
 	
 		gotoxy(22, 13);
-		int id = Integer.parseInt(System.console().readLine());
+		int id = Integer.parseInt(scanIn.nextLine());
 		gotoxy(55, 13);
-		String title = System.console().readLine();
+		String title = scanIn.nextLine();
 		gotoxy(22, 18);
-		String city = System.console().readLine();
+		String city = scanIn.nextLine();
 		gotoxy(55, 18);
-		String contactno = System.console().readLine();
+		String contactno = scanIn.nextLine();
 		gotoxy(22, 23);
-		String emailid = System.console().readLine();
+		String emailid = scanIn.nextLine();
 	
 		cust.setId(id);
 		cust.setName(title);
@@ -770,7 +779,7 @@ public class Menu {
 					i++;
 				} else {
 					gotoxy(4, 12);
-					System.out.print("Searched supplier couldn't found.");
+					System.out.print("Searched customer couldn't found.");
 				}
 				p++;
 			} while (p < (((b) / (Customer.CUSTOMER_DATA_BLOCK_SIZE)) + 1));
@@ -885,50 +894,58 @@ public class Menu {
 		gotoxy(7, 29);
 		System.out.println("EXP.DATE(dd-mm-yyyy): ");
 	
+		Scanner scanIn = new Scanner(System.in);
 		gotoxy(26, 11);
-		int id = Integer.parseInt(System.console().readLine());
+		int id = Integer.parseInt(scanIn.nextLine());
 		gotoxy(60, 11);
-		String name = System.console().readLine();
+		String name = scanIn.nextLine();
 		gotoxy(26, 14);
-		String rackno = System.console().readLine();
+		String rackno = scanIn.nextLine();
 		gotoxy(60, 14);
-		String cabnitno = System.console().readLine();
+		String cabnitno = scanIn.nextLine();
 		gotoxy(26, 18);
-		String companyname = System.console().readLine();
+		String companyname = scanIn.nextLine();
 		gotoxy(60, 18);
-		String suppliername = System.console().readLine();
+		String suppliername = scanIn.nextLine();
 		gotoxy(26, 21);
-		int unitcost = Integer.parseInt(System.console().readLine());
+		String unitcost = scanIn.nextLine();
 		gotoxy(60, 21);
-		int salecost = Integer.parseInt(System.console().readLine());
+		String salecost = scanIn.nextLine();
 		gotoxy(26, 24);
-		int quantity = Integer.parseInt(System.console().readLine());
+		String quantity = scanIn.nextLine();
 		gotoxy(30, 27);
-		String mfgdate = System.console().readLine();
+		String mfgdate = scanIn.nextLine();
 		gotoxy(30, 29);
-		String expdate = System.console().readLine();
+		String expdate = scanIn.nextLine();
+		
+		
+				Medicine medicine = new Medicine();
+					
+			medicine.setId(id);
+			medicine.setName(name);
+			medicine.setRack(rackno);
+			medicine.setCabinet(cabnitno);
+			medicine.setCompanyName(companyname);
+			medicine.setSupplierName(suppliername);
+			medicine.setUnitCost(unitcost);
+			medicine.setSaleCost(salecost);
+			medicine.setQuantity(quantity);
+			medicine.setManDate(mfgdate);
+			medicine.setExpDate(expdate);
+				
+		int quantityint = Integer.parseInt(medicine.getQuantity());
+		int saleint = Integer.parseInt(medicine.getSaleCost());
+		int unitint = Integer.parseInt(medicine.getUnitCost());
 	
-		int totalSaleCost = quantity * salecost;
-		int totalUnitCost = quantity * unitcost;
+		int totalSaleCost = quantityint * saleint;
+		int totalUnitCost = quantityint * unitint;
 	
 		gotoxy(7, 31);
 		System.out.println("Total Sale Cost : " + totalSaleCost);
 		gotoxy(40, 31);
 		System.out.println("Total Unit Cost : " + totalUnitCost);
 	
-		Medicine medicine = new Medicine();
-	
-		medicine.setId(id);
-		medicine.setName(name);
-		medicine.setRack(rackno);
-		medicine.setCabinet(cabnitno);
-		medicine.setCompanyName(companyname);
-		medicine.setSupplierName(suppliername);
-		medicine.setUnitCost(unitcost);
-		medicine.setSaleCost(salecost);
-		medicine.setQuantity(quantity);
-		medicine.setManDate(mfgdate);
-		medicine.setExpDate(expdate);
+
 	
 		gotoxy(20, 33);
 		System.out.println("Save");
@@ -960,7 +977,7 @@ public class Menu {
 			break;
 		}
 	}
-	//function for saling medicine
+	//function for selling medicine
 	public void saleMedicine() throws IOException {
 		Medicine f = new Medicine();
 		clearScreen();
@@ -975,9 +992,9 @@ public class Menu {
 		String medexp = bookWrittenObject2.getExpDate();
 		String medmfg = bookWrittenObject2.getManDate();
 		String medrack = bookWrittenObject2.getRack();	
-		int medsale = bookWrittenObject2.getSaleCost();
+		String medsale = bookWrittenObject2.getSaleCost();
 		String medsupp = bookWrittenObject2.getSupplierName();
-		int medunit = bookWrittenObject2.getUnitCost();
+		String medunit = bookWrittenObject2.getUnitCost();
 		int medid = bookWrittenObject2.getId();
 
 
@@ -995,7 +1012,10 @@ public class Menu {
 		gotoxy(7, 11);
 		System.out.println("Enter Medicine Id To Be Sold : ");
 		gotoxy(40, 11);
-		int sid = Integer.parseInt(System.console().readLine());
+		
+	    Scanner scanIn = new Scanner(System.in);
+
+		int sid = Integer.parseInt(scanIn.nextLine());
 		clearScreen();
 		
 		byte[] bookWrittenBytes = FileUtility.readBlock(p, Medicine.MEDICINE_DATA_BLOCK_SIZE, fileName);
@@ -1016,21 +1036,23 @@ public class Menu {
 			p++;
 		} while (p < (((b) / (Medicine.MEDICINE_DATA_BLOCK_SIZE)) + 1));
 		medicinebox();
-        int newquantity = bookWrittenObject.getQuantity();
+        int newquantity = Integer.parseInt(bookWrittenObject.getQuantity());
 		String medicinename = bookWrittenObject.getName();
-		int rate = bookWrittenObject.getSaleCost();
+		String rate = bookWrittenObject.getSaleCost();
 		gotoxy(7, 18);
 		System.out.println("Enter Bill Number     : ");
 		gotoxy(31, 18);
-		int billnumber = Integer.parseInt(System.console().readLine());
+		int billnumber = Integer.parseInt(scanIn.nextLine());
 		gotoxy(7, 21);
 		System.out.println("Enter Customer Name   : ");
 		gotoxy(31, 21);
-		String custname = System.console().readLine();
+		String custname = scanIn.nextLine();
 		gotoxy(7, 24);
 		System.out.println("Quantity Want To Sale : ");
 		gotoxy(31, 24);
-		String quantity = System.console().readLine();
+		String quantity = scanIn.nextLine();
+		
+		
 		
 		int newquantity1 = Integer.parseInt(quantity);
 		int	lastquantity = newquantity - newquantity1 ;
@@ -1056,7 +1078,7 @@ public class Menu {
 		f.setSaleCost(medsale);
 		f.setSupplierName(medsupp);
 		f.setUnitCost(medunit);
-     	f.setQuantity(Integer.parseInt(lastquantity1));
+     	f.setQuantity(lastquantity1);
      	byte[] aBytes = Medicine.medicineToByteArrayBlock(f); {
 			FileUtility.updateBlock(aBytes,sid,Medicine.MEDICINE_DATA_BLOCK_SIZE, "medicine.dat");
 		}
@@ -1065,7 +1087,7 @@ public class Menu {
 		bill.setcustomername(custname);
 		bill.setmedicinename(medicinename);
 		bill.setquantity(quantity);
-		bill.setrate(Integer.toString((rate)));
+		bill.setrate(rate);
 		
 		byte[] aBytes1 = ce103_hw4_library_lib.bill.billToByteArrayBlock(bill); {
 			try {
@@ -1114,7 +1136,7 @@ public class Menu {
 					gotoxy(15, i22);
 					System.out.println(bookWrittenObject11.getName());
 					gotoxy(33, i22);
-					System.out.println(Integer.toString(bookWrittenObject11.getQuantity()));
+					System.out.println(bookWrittenObject11.getQuantity());
 					gotoxy(41, i22);
 					System.out.println(bookWrittenObject11.getSupplierName());
 					gotoxy(59, i22);
@@ -1165,7 +1187,7 @@ public class Menu {
 					gotoxy(15, ii);
 					System.out.println(bookWrittenObject.getName());
 					gotoxy(33, ii);
-					System.out.println(Integer.toString(bookWrittenObject.getQuantity()));
+					System.out.println(bookWrittenObject.getQuantity());
 					gotoxy(41, ii);
 					System.out.println(bookWrittenObject.getSupplierName());
 					gotoxy(59, ii);
@@ -1206,6 +1228,93 @@ public class Menu {
 		main_box();
 
 	}
+	//function for displaying bills
+	public void displayBill() throws IOException {
+		
+		clearScreen();
+		int p2 = 1;
+		String file2Name = "medicine.dat";
+		byte[] bookWrittenBytes2 = null;
+		try {
+			bookWrittenBytes2 = FileUtility.readBlock(p2, Medicine.MEDICINE_DATA_BLOCK_SIZE, file2Name);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		Medicine bookWrittenObject2 = Medicine.byteArrayBlockToMedicine(bookWrittenBytes2);
+
+		String medquan = bookWrittenObject2.getQuantity();
+		String medsale = bookWrittenObject2.getSaleCost();
+		int medquannew = Integer.parseInt(medquan);
+		int medsalenew = Integer.parseInt(medsale);
+
+		int pp = 1;
+		String ffileName = "bill.dat";
+		FileReader ffileReader = null;
+		try {
+			ffileReader = new FileReader(ffileName);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		BufferedReader br = new BufferedReader(ffileReader);
+		String dattlength = br.readLine();
+		br.close();
+		int bb = dattlength.length();
+		clearScreen();
+		int ii = 17;
+
+		gotoxy(13, 8);
+		System.out.println("Enter bill no to be searched:");
+		gotoxy(42, 8);
+		int sid = Integer.parseInt(System.console().readLine());
+        main_box();
+		clearScreen();
+	
+		gotoxy(9, 14);
+		System.out.println("Sr.No  ID.   MEDICINE NAME.    QTY     Rate     Total");
+		gotoxy(9, 15);
+		System.out.println("=====================================================\n");
+
+		do {
+
+			byte[] bookWrittenBytes = FileUtility.readBlock(pp, bill.BOOK_DATA_BLOCK_SIZE, ffileName);
+			bill bookWrittenObject = bill.byteArrayBlockToBill(bookWrittenBytes);
+            int billnobro =  bookWrittenObject.getbillno();
+           gotoxy(9,7);
+ 		   System.out.println("Bill No: ");
+ 		   gotoxy(18,7);
+ 		   System.out.println(bookWrittenObject.getbillno());
+ 		   gotoxy(9,9);
+ 		   System.out.println("Customer Name: ");
+ 		   gotoxy(24,9);
+ 		   System.out.println(bookWrittenObject.getcustomername());
+ 		   
+			if (bookWrittenObject != null && sid == billnobro) {
+
+				gotoxy(9, ii);
+				System.out.println(pp);
+				gotoxy(16, ii);
+				System.out.println(bookWrittenObject.getid());
+				gotoxy(22, ii);
+				System.out.println(bookWrittenObject.getmedicinename());
+				gotoxy(40, ii);
+				System.out.println(bookWrittenObject.getquantity());
+				gotoxy(48, ii);
+				System.out.println(bookWrittenObject.getrate());
+				int total = medsalenew * medquannew;
+				gotoxy(57, ii);
+				System.out.println(total);
+				ii++;
+			}
+
+			pp++;
+		} while (pp < (((bb) / (bill.BOOK_DATA_BLOCK_SIZE)) + 1));
+		main_box();
+
+		Scanner b1 = new Scanner(System.in);
+		Character cl = b1.next().charAt(0);
+
+	}
+	
 	
 	//function for displaying about menu
 	public void displayAbout()
@@ -1394,26 +1503,11 @@ public class Menu {
 
 			break;
 		case 5:
-			a.clearScreen();
-
-			Scanner df = new Scanner(System.in);
-			System.out.println("Enter The Bill No : ");
-			choice = Integer.parseInt(df.nextLine());
-
-			switch (choice) {
-			case 1:
-				break;
-			case 2:
-				break;
-			case 3:
-				break;
-			case 4:
-				break;
-			case 5:
-				break;
-
+			try {
+				displayBill();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-
 			break;
 		case 6:
 			displayAbout();
