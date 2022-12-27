@@ -2,6 +2,8 @@ package ce103_hw4_library_lib;
 
 public class Medicine {
 	
+	/*These constants represent the maximum length of a customer's
+	 *ID, name, rack, cab, company name, supplier name, unit cost, sale cost, quantity, manufacture date, expire date respectively.*/
 	public static final int ID_LENGTH = 4;
 	public static final int NAME_MAX_LENGTH = 50;
 	public static final int RACK_MAX_LENGTH = 10;
@@ -13,11 +15,14 @@ public class Medicine {
 	public static final int QUANTITY_LENGTH = 8;
 	public static final int MAN_DATE_LENGTH = 8;
 	public static final int EXP_DATE_LENGTH = 8;
+	
+	/*This constant represents the total size of the data block for a medicine.*/
 	public static final int MEDICINE_DATA_BLOCK_SIZE = ID_LENGTH + NAME_MAX_LENGTH + RACK_MAX_LENGTH + CABINET_MAX_LENGTH 
 														+ COMPANY_NAME_MAX_LENGTH + SUPPLIER_NAME_MAX_LENGTH 
 														+ UNIT_COST_LENGTH + SALE_COST_LENGTH 
 														+ QUANTITY_LENGTH + MAN_DATE_LENGTH + EXP_DATE_LENGTH;
 
+	//private fields
 	private int id;
 	private String name;
 	private String rack;
@@ -30,6 +35,8 @@ public class Medicine {
 	private String manDate;
 	private String expDate;
 	
+	
+	// These methods are getters and setters for the fields of the class.
 	public int getId() {
 		return id;
 	}
@@ -118,6 +125,17 @@ public class Medicine {
 		this.expDate = expDate;
 	}
 
+	
+	/**
+
+	Converts a Medicine object into a byte array.
+
+	@param customer The Medicine object to be converted.
+
+	@return A byte array representation of the medicine.
+
+	@throws IllegalArgumentException If the size of the resulting byte array does not match the expected size.
+	*/
 	public static byte[] medicineToByteArrayBlock(Medicine medicine) {
 		int index = 0;
 
@@ -184,6 +202,14 @@ public class Medicine {
 				return dataBuffer;
 			}
 
+	
+	/**
+	 * Converts a byte array to a Medicine object.
+	 *
+	 * @param byteArray the byte array to convert
+	 * @return the Medicine object represented by the byte array
+	 * @throws IllegalArgumentException if the size of the byte array does not match the expected size
+	 */
 		public static Medicine byteArrayBlockToMedicine(byte[] byteArray) {
 
 			Medicine medicine = new Medicine();

@@ -2,19 +2,29 @@ package ce103_hw4_library_lib;
 
 public class Supplier {
 	
+	/*These constants represent the maximum length of a customer's
+	 *ID, name, city, phone number, and email address, respectively.*/
 	public static final int ID_LENGTH = 4;
 	public static final int NAME_MAX_LENGTH = 50;
 	public static final int CITY_MAX_LENGTH = 30;
 	public static final int PHONE_MAX_LENGTH = 20;
 	public static final int EMAIL_MAX_LENGTH = 50;
+	
+	
+	/*This constant represents the total size of the data block for a supplier,
+	 *which includes their ID, name, city, phone number, and email address.*/
 	public static final int SUPPLIER_DATA_BLOCK_SIZE = ID_LENGTH + NAME_MAX_LENGTH + CITY_MAX_LENGTH + PHONE_MAX_LENGTH + EMAIL_MAX_LENGTH;
 
+	
+	//private fields
 	private int id;
 	private String name;
 	private String city;
 	private String phone;
 	private String email;
+
 	
+	// These methods are getters and setters for the fields of the class.
 	public int getId() {
 		return id;
 	}
@@ -55,6 +65,17 @@ public class Supplier {
 		this.email = email;
 	}
 
+	
+	/**
+
+	Converts a Supplier object into a byte array.
+
+	@param customer The Supplier object to be converted.
+
+	@return A byte array representation of the Supplier.
+
+	@throws IllegalArgumentException If the size of the resulting byte array does not match the expected size.
+	*/
 	public static byte[] supplierToByteArrayBlock(Supplier supplier) {
 		int index = 0;
 
@@ -92,6 +113,14 @@ public class Supplier {
 		return dataBuffer;
 	}
 
+	
+	/**
+	 * Converts a byte array to a Supplier object.
+	 *
+	 * @param byteArray the byte array to convert
+	 * @return the Supplier object represented by the byte array
+	 * @throws IllegalArgumentException if the size of the byte array does not match the expected size
+	 */
 	public static Supplier byteArrayBlockToSupplier(byte[] byteArray) {
 
 		Supplier supplier = new Supplier();
