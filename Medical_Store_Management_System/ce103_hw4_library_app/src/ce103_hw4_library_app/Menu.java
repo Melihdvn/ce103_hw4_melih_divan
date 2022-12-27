@@ -12,6 +12,8 @@ import ce103_hw4_library_lib.Customer;
 import ce103_hw4_library_lib.FileUtility;
 import ce103_hw4_library_lib.Medicine;
 import ce103_hw4_library_lib.Supplier;
+import ce103_hw4_library_lib.bill;
+
 
 public class Menu {
 
@@ -353,9 +355,7 @@ public class Menu {
 	
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
 	public void searchSupplier() throws IOException {
-		Supplier j = new Supplier();
 		int p = 1;
 		String fileName = "supplier.dat";
 		FileReader fileReader = new FileReader(fileName);
@@ -963,11 +963,30 @@ public class Menu {
 	public void saleMedicine() throws IOException {
 		Medicine f = new Medicine();
 		clearScreen();
+		int p2 = 1;
+		String file2Name = "medicine.dat";
+		byte[] bookWrittenBytes2 = FileUtility.readBlock(p2, Medicine.MEDICINE_DATA_BLOCK_SIZE, file2Name);
+		Medicine bookWrittenObject2 = Medicine.byteArrayBlockToMedicine(bookWrittenBytes2);
+		
+		String medname = bookWrittenObject2.getName();
+		String medcab = bookWrittenObject2.getCabinet();
+		String medcomp = bookWrittenObject2.getCompanyName();
+		String medexp = bookWrittenObject2.getExpDate();
+		String medmfg = bookWrittenObject2.getManDate();
+		String medrack = bookWrittenObject2.getRack();	
+		int medsale = bookWrittenObject2.getSaleCost();
+		String medsupp = bookWrittenObject2.getSupplierName();
+		int medunit = bookWrittenObject2.getUnitCost();
+		int medid = bookWrittenObject2.getId();
+
+
 		int p = 1;
 		String fileName = "medicine.dat";
+		bill bill = new bill();
+		
 		FileReader fileReader = new FileReader(fileName);
-		BufferedReader br = new BufferedReader(fileReader);
-		String datlength = br.readLine();
+		BufferedReader br2 = new BufferedReader(fileReader);
+		String datlength = br2.readLine();
 		
 		int b = datlength.length();
 		int i = 14;
@@ -977,45 +996,92 @@ public class Menu {
 		gotoxy(40, 11);
 		int sid = Integer.parseInt(System.console().readLine());
 		clearScreen();
+		
+		byte[] bookWrittenBytes = FileUtility.readBlock(p, Medicine.MEDICINE_DATA_BLOCK_SIZE, fileName);
+		Medicine bookWrittenObject = Medicine.byteArrayBlockToMedicine(bookWrittenBytes);
+		
 		do {
-			byte[] WrittenBytes = FileUtility.readBlock(p, Medicine.MEDICINE_DATA_BLOCK_SIZE, fileName);
-			Medicine WrittenObject = Medicine.byteArrayBlockToMedicine(WrittenBytes);
-	
-			if (WrittenObject != null && sid == WrittenObject.getId()) {
+			if (bookWrittenObject != null && sid == bookWrittenObject.getId()) {
 				gotoxy(7, i);
-				System.out.println("Medicine Name     : " + WrittenObject.getName());
+				System.out.println("Medicine Name     : " + bookWrittenObject.getName());
 				gotoxy(7, i + 1);
-				System.out.println("Quantity In Stock : " + WrittenObject.getQuantity());
+				System.out.println("Quantity In Stock : " + bookWrittenObject.getQuantity());
 				gotoxy(7, i + 2);
-				System.out.println("Sales Price       : " + WrittenObject.getSaleCost());
+				System.out.println("Sales Price       : " + bookWrittenObject.getSaleCost());
+				
+
 				i++;
 			}
 			p++;
 		} while (p < (((b) / (Medicine.MEDICINE_DATA_BLOCK_SIZE)) + 1));
 		medicinebox();
-		Scanner a1 = new Scanner(System.in);
-		Character kl = a1.next().charAt(0);
-	
+        int newquantity = bookWrittenObject.getQuantity();
+		String medicinename = bookWrittenObject.getName();
+		int rate = bookWrittenObject.getSaleCost();
 		gotoxy(7, 18);
-		
+		System.out.println("Enter Bill Number     : ");
+		gotoxy(31, 18);
 		int billnumber = Integer.parseInt(System.console().readLine());
 		gotoxy(7, 21);
 		System.out.println("Enter Customer Name   : ");
-		
+		gotoxy(31, 21);
 		String custname = System.console().readLine();
 		gotoxy(7, 24);
 		System.out.println("Quantity Want To Sale : ");
+		gotoxy(31, 24);
+		String quantity = System.console().readLine();
 		
-		int billnumber1 = Integer.parseInt(System.console().readLine());
-	
+		int newquantity1 = Integer.parseInt(quantity);
+		int	lastquantity = newquantity - newquantity1 ;
+		String lastquantity1 = String.valueOf(lastquantity);
+		
 		clearScreen();
 		main_box();
-		System.out.println("Price Paid By Customer : " + f.getSaleCost());
-		System.out.println("Quantity Sold          : " + billnumber1);
-	
+		gotoxy(7,18);
+		System.out.println("Price Paid By Customer : " + custname);
+		gotoxy(7,21);
+		System.out.println("Quantity Sold          : " + quantity);
+		
 		Scanner a11 = new Scanner(System.in);
 		Character kl1 = a11.next().charAt(0);
-		br.close();
+		
+		f.setCabinet(medcab);
+		f.setCompanyName(medcomp);
+		f.setExpDate(medexp);
+		f.setId(medid);
+		f.setName(medname);
+		f.setManDate(medmfg);
+		f.setRack(medrack);
+		f.setSaleCost(medsale);
+		f.setSupplierName(medsupp);
+		f.setUnitCost(medunit);
+     	f.setQuantity(Integer.parseInt(lastquantity1));
+     	byte[] aBytes = Medicine.medicineToByteArrayBlock(f); {
+			FileUtility.updateBlock(aBytes,sid,Medicine.MEDICINE_DATA_BLOCK_SIZE, "medicine.dat");
+		}
+     	
+		bill.setbillno(billnumber);
+		bill.setcustomername(custname);
+		bill.setmedicinename(medicinename);
+		bill.setquantity(quantity);
+		bill.setrate(Integer.toString((rate)));
+		
+		byte[] aBytes1 = ce103_hw4_library_lib.bill.billToByteArrayBlock(bill); {
+			try {
+				FileUtility.appendBlock(aBytes1, "bill.dat");
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+		clearScreen();
+		gotoxy(20, 20);
+		System.out.println("Succesfully Updated");
+		main_box();
+		Scanner a111 = new Scanner(System.in);
+		Character kl11 = a111.next().charAt(0);
+		
+		br2.close();
 		displayMedicine();
 	
 	}
