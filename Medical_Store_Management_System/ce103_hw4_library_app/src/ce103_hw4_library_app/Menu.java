@@ -2,6 +2,7 @@ package ce103_hw4_library_app;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -212,6 +213,7 @@ public class Menu {
 		System.out.print("Welcome To Medical Store ");
 	}
 	
+	//displays supplier screen
 	public void displaySupplier() {
 		// Clear screen
 		System.out.print("\033[H\033[2J");
@@ -1066,7 +1068,7 @@ public class Menu {
 		bill.setquantity(quantity);
 		bill.setrate(Integer.toString((rate)));
 		
-		byte[] aBytes1 = ce103_hw4_library_lib.bill.billToByteArrayBlock(bill); {
+		byte[] aBytes1 = bill.billToByteArrayBlock(bill); {
 			try {
 				FileUtility.appendBlock(aBytes1, "bill.dat");
 			} catch (IOException e) {
@@ -1084,8 +1086,98 @@ public class Menu {
 		br2.close();
 		displayMedicine();
 	
+	
 	}
+	
+	 public void stockmedicine() throws IOException {
+	        clearScreen();
+	    	gotoxy(9,10);
+			System.out.println("ID.   MEDICINE NAME.    QTY     Supplier Name     Exp.Date");
+			gotoxy(9,12);
+			System.out.println("===========================================================\n");
+		
+			int p22 = 1;
+			String file2Name2 = "medicine.dat";
+			FileReader file22Reader = new FileReader(file2Name2);
+			BufferedReader br = new BufferedReader(file22Reader);
+			String dat22length = br.readLine();
+			br.close();
+			int b22 = dat22length.length();
+			int i22 = 14;
+			do {
+				byte[] bookWrittenBytes11 = FileUtility.readBlock(p22, Medicine.MEDICINE_DATA_BLOCK_SIZE, file2Name2);
+				Medicine bookWrittenObject11 = Medicine.byteArrayBlockToMedicine(bookWrittenBytes11);
 
+				if (bookWrittenObject11 != null) {
+
+					gotoxy(9, i22);
+					System.out.println(bookWrittenObject11.getId());
+					gotoxy(15, i22);
+					System.out.println(bookWrittenObject11.getName());
+					gotoxy(33, i22);
+					System.out.println(bookWrittenObject11.getQuantity());
+					gotoxy(41, i22);
+					System.out.println(bookWrittenObject11.getSupplierName());
+					gotoxy(59, i22);
+					System.out.println(bookWrittenObject11.getExpDate());
+		
+					i22++;
+				}
+				p22++;
+			} while (p22 < (((b22) / (Medicine.MEDICINE_DATA_BLOCK_SIZE)) + 1));
+			main_box();
+		
+			Scanner a1 = new Scanner(System.in);
+			Character kl = a1.next().charAt(0);
+	    }
+	public void searchmedicine() throws IOException
+	{
+		int pp = 1;
+		String ffileName = "medicine.dat";
+		FileReader ffileReader = new FileReader(ffileName);
+		BufferedReader br = new BufferedReader(ffileReader);
+		String dattlength = br.readLine();
+		br.close();
+		int bb = dattlength.length();
+		clearScreen();
+		int ii = 14;
+
+		
+			gotoxy(13, 8);
+			System.out.println("Enter id to be searched:");
+			int sid = Integer.parseInt(System.console().readLine());
+	
+			clearScreen();
+		    	gotoxy(9,10);
+				System.out.println("ID.   MEDICINE NAME.    QTY     Supplier Name     Exp.Date");
+				gotoxy(9,12);
+				System.out.println("===========================================================\n");
+			do {
+
+				byte[] bookWrittenBytes = FileUtility.readBlock(pp, Medicine.MEDICINE_DATA_BLOCK_SIZE, ffileName);
+				Medicine bookWrittenObject = Medicine.byteArrayBlockToMedicine(bookWrittenBytes);
+
+				if (bookWrittenObject != null && sid == bookWrittenObject.getId()) {
+
+					gotoxy(9, ii);
+					System.out.println(bookWrittenObject.getId());
+					gotoxy(15, ii);
+					System.out.println(bookWrittenObject.getName());
+					gotoxy(33, ii);
+					System.out.println(bookWrittenObject.getQuantity());
+					gotoxy(41, ii);
+					System.out.println(bookWrittenObject.getSupplierName());
+					gotoxy(59, ii);
+					System.out.println(bookWrittenObject.getExpDate());
+					ii++;
+				}
+
+				pp++;
+			} while (pp < (((bb) / (Medicine.MEDICINE_DATA_BLOCK_SIZE)) + 1));
+			main_box();
+			Scanner a1 = new Scanner(System.in);
+			Character kl = a1.next().charAt(0);
+	}
 	public void displayReport() {
 		// Clear screen
 		clearScreen();
@@ -1257,10 +1349,21 @@ public class Menu {
 				}
 				break;
 			case 3:
+				try {
+					stockmedicine();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				break;
 			case 4:
+				try {
+					searchmedicine();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				break;
 			case 5:
+				displayMainMenu();
 				break;
 
 			}
