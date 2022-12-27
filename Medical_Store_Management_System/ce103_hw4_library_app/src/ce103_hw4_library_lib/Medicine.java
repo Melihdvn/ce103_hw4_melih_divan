@@ -13,8 +13,8 @@ public class Medicine {
 	public static final int UNIT_COST_LENGTH = 8;
 	public static final int SALE_COST_LENGTH = 8;
 	public static final int QUANTITY_LENGTH = 8;
-	public static final int MAN_DATE_LENGTH = 8;
-	public static final int EXP_DATE_LENGTH = 8;
+	public static final int MAN_DATE_LENGTH = 15;
+	public static final int EXP_DATE_LENGTH = 15;
 	
 	/*This constant represents the total size of the data block for a medicine.*/
 	public static final int MEDICINE_DATA_BLOCK_SIZE = ID_LENGTH + NAME_MAX_LENGTH + RACK_MAX_LENGTH + CABINET_MAX_LENGTH 
@@ -29,9 +29,9 @@ public class Medicine {
 	private String cabinet;
 	private String companyName;
 	private String supplierName;
-	private int unitCost;
-	private int saleCost;
-	private int quantity;
+	private String unitCost;
+	private String saleCost;
+	private String quantity;
 	private String manDate;
 	private String expDate;
 	
@@ -85,27 +85,27 @@ public class Medicine {
 		this.supplierName = supplierName;
 	}
 
-	public int getUnitCost() {
+	public String getUnitCost() {
 		return unitCost;
 	}
 
-	public void setUnitCost(int unitCost) {
+	public void setUnitCost(String unitCost) {
 		this.unitCost = unitCost;
 	}
 
-	public int getSaleCost() {
+	public String getSaleCost() {
 		return saleCost;
 	}
 
-	public void setSaleCost(int saleCost) {
+	public void setSaleCost(String saleCost) {
 		this.saleCost = saleCost;
 	}
 
-	public int getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 
@@ -172,16 +172,16 @@ public class Medicine {
 		index += Medicine.SUPPLIER_NAME_MAX_LENGTH;
 
 		// copy medicine unit cost
-		byte[] unitCostBytes = ConversionUtility.integerToByteArray(medicine.getUnitCost());
+		byte[] unitCostBytes = ConversionUtility.stringToByteArray(medicine.getUnitCost());
 		System.arraycopy(unitCostBytes, 0, dataBuffer, index, unitCostBytes.length);
 		index += Medicine.UNIT_COST_LENGTH;
 		// copy medicine sale cost
-		byte[] saleCostBytes = ConversionUtility.integerToByteArray(medicine.getSaleCost());
+		byte[] saleCostBytes = ConversionUtility.stringToByteArray(medicine.getSaleCost());
 		System.arraycopy(saleCostBytes, 0, dataBuffer, index, saleCostBytes.length);
 		index += Medicine.SALE_COST_LENGTH;
 
 		// copy medicine quantity
-		byte[] quantityBytes = ConversionUtility.integerToByteArray(medicine.getQuantity());
+		byte[] quantityBytes = ConversionUtility.stringToByteArray(medicine.getQuantity());
 		System.arraycopy(quantityBytes, 0, dataBuffer, index, quantityBytes.length);
 		index += Medicine.QUANTITY_LENGTH;
 
@@ -263,21 +263,21 @@ public class Medicine {
 			// copy medicine unit cost
 			byte[] unitCostBytes = new byte[Medicine.UNIT_COST_LENGTH];
 			System.arraycopy(byteArray, index, unitCostBytes, 0, unitCostBytes.length);
-			medicine.setUnitCost(ConversionUtility.byteArrayToInteger(unitCostBytes));
+			medicine.setUnitCost(ConversionUtility.byteArrayToString(unitCostBytes));
 
 			index += Medicine.UNIT_COST_LENGTH;
 
 			// copy medicine sale cost
 			byte[] saleCostBytes = new byte[Medicine.SALE_COST_LENGTH];
 			System.arraycopy(byteArray, index, saleCostBytes, 0, saleCostBytes.length);
-			medicine.setSaleCost(ConversionUtility.byteArrayToInteger(saleCostBytes));
+			medicine.setSaleCost(ConversionUtility.byteArrayToString(saleCostBytes));
 
 			index += Medicine.SALE_COST_LENGTH;
 
 			// copy medicine quantity
 			byte[] quantityBytes = new byte[Medicine.QUANTITY_LENGTH];
 			System.arraycopy(byteArray, index, quantityBytes, 0, quantityBytes.length);
-			medicine.setQuantity(ConversionUtility.byteArrayToInteger(quantityBytes));
+			medicine.setQuantity(ConversionUtility.byteArrayToString(quantityBytes));
 
 			index += Medicine.QUANTITY_LENGTH;
 
