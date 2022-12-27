@@ -2,7 +2,6 @@ package ce103_hw4_library_app;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -238,7 +237,7 @@ public class Menu {
 		main_box();
 
 	}
-
+    //function for adding supplier
 	public void addSupplier()
 	
 	{
@@ -307,7 +306,7 @@ public class Menu {
 		}
 	
 	}
-
+	//function for editing supplier
 	public void editSupplier() {
 		clearScreen();
 		main_box();
@@ -356,7 +355,7 @@ public class Menu {
 		}
 	
 	}
-
+    //function for searching supplier
 	public void searchSupplier() throws IOException {
 		int p = 1;
 		String fileName = "supplier.dat";
@@ -475,7 +474,7 @@ public class Menu {
 		}
 	
 	}
-
+	//function for listing supplier
 	public void listSupplier() throws IOException {
 		Supplier j = new Supplier();
 		int p = 1;
@@ -526,7 +525,7 @@ public class Menu {
 		Scanner a1 = new Scanner(System.in);
 		Character kl = a1.next().charAt(0);
 	}
-
+	//function for displaying customer menu
 	public void displayCustomer() {
 		clearScreen();
 		gotoxy(34, 3);
@@ -548,7 +547,7 @@ public class Menu {
 		main_box();
 	
 	}
-
+	//function for adding customer
 	public void addCustomer() {
 	
 		clearScreen();
@@ -616,7 +615,7 @@ public class Menu {
 		}
 	
 	}
-
+	//function for editing customer
 	public void editCustomer() {
 	
 		int customernumber;
@@ -664,7 +663,7 @@ public class Menu {
 			e.printStackTrace();
 		}
 	}
-
+	//function for searching customer
 	public void searchCustomer() throws IOException {
 		int p = 1;
 		String fileName = "customer.dat";
@@ -783,7 +782,7 @@ public class Menu {
 		}
 	
 	}
-
+	//function for listing customers to screen
 	public void listCustomer() throws IOException {
 		Customer j = new Customer();
 		int p = 1;
@@ -834,7 +833,7 @@ public class Menu {
 		Scanner a1 = new Scanner(System.in);
 		Character kl = a1.next().charAt(0);
 	}
-
+	//function for displaying medicine menu
 	public void displayMedicine() {
 		// Clear screen
 		clearScreen();
@@ -858,7 +857,7 @@ public class Menu {
 		main_box();
 
 	}
-
+	//function for purchasing medicine
 	public void purchaseMedicine() {
 		clearScreen();
 		main_box();
@@ -961,7 +960,7 @@ public class Menu {
 			break;
 		}
 	}
-
+	//function for saling medicine
 	public void saleMedicine() throws IOException {
 		Medicine f = new Medicine();
 		clearScreen();
@@ -1068,7 +1067,7 @@ public class Menu {
 		bill.setquantity(quantity);
 		bill.setrate(Integer.toString((rate)));
 		
-		byte[] aBytes1 = bill.billToByteArrayBlock(bill); {
+		byte[] aBytes1 = ce103_hw4_library_lib.bill.billToByteArrayBlock(bill); {
 			try {
 				FileUtility.appendBlock(aBytes1, "bill.dat");
 			} catch (IOException e) {
@@ -1088,7 +1087,7 @@ public class Menu {
 	
 	
 	}
-	
+	//function for displaying medicine list
 	 public void stockmedicine() throws IOException {
 	        clearScreen();
 	    	gotoxy(9,10);
@@ -1115,7 +1114,7 @@ public class Menu {
 					gotoxy(15, i22);
 					System.out.println(bookWrittenObject11.getName());
 					gotoxy(33, i22);
-					System.out.println(bookWrittenObject11.getQuantity());
+					System.out.println(Integer.toString(bookWrittenObject11.getQuantity()));
 					gotoxy(41, i22);
 					System.out.println(bookWrittenObject11.getSupplierName());
 					gotoxy(59, i22);
@@ -1130,6 +1129,8 @@ public class Menu {
 			Scanner a1 = new Scanner(System.in);
 			Character kl = a1.next().charAt(0);
 	    }
+	 
+	//function for search medicine 
 	public void searchmedicine() throws IOException
 	{
 		int pp = 1;
@@ -1164,7 +1165,7 @@ public class Menu {
 					gotoxy(15, ii);
 					System.out.println(bookWrittenObject.getName());
 					gotoxy(33, ii);
-					System.out.println(bookWrittenObject.getQuantity());
+					System.out.println(Integer.toString(bookWrittenObject.getQuantity()));
 					gotoxy(41, ii);
 					System.out.println(bookWrittenObject.getSupplierName());
 					gotoxy(59, ii);
@@ -1178,6 +1179,8 @@ public class Menu {
 			Scanner a1 = new Scanner(System.in);
 			Character kl = a1.next().charAt(0);
 	}
+	
+	//function for displaying report menu
 	public void displayReport() {
 		// Clear screen
 		clearScreen();
@@ -1203,7 +1206,8 @@ public class Menu {
 		main_box();
 
 	}
-
+	
+	//function for displaying about menu
 	public void displayAbout()
 	{
 		clearScreen();
@@ -1226,7 +1230,7 @@ public class Menu {
 		Menu menu = new Menu();
 		menu.runMenu();
 	}
-
+	//function for running menu
 	public void runMenu() {
 		while (!exit) {
 			printMenu();
@@ -1234,13 +1238,13 @@ public class Menu {
 			performAction(choice);
 		}
 	}
-
+	//function for printing menu
 	public void printMenu() {
 		Menu b = new Menu();
 		b.clearScreen();
 		displayMainMenu();
 	}
-
+	//function for getting input
 	public int getInput() {
 		Scanner kb = new Scanner(System.in);
 		int choice = -1;
