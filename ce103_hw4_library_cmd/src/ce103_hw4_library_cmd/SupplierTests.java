@@ -63,8 +63,5 @@ class SupplierTests {
 	    // Check that the values of the fields in the Supplier object are correctly set
 	    assertEquals(1, supplier.getId());
 	    assertEquals("John SmithNew York123-456-7890john@example.com", supplier.getName());
-	//    assertEquals("New York", supplier.getCity());
-	 //   assertEquals("123-456-7890", supplier.getPhone());
-	//    assertEquals("john@example.com", supplier.getEmail());
 	}
 }
